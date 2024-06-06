@@ -1,4 +1,4 @@
-name: Custom Windows VNC
+name: Ubuntu VNC
 
 on: 
   workflow_dispatch:
