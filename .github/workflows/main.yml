@@ -21,6 +21,7 @@ jobs:
              mkdir ~/.vnc
              wget -O ~/.vnc/passwd https://github.com/Efebey2903/GH-Ubuntu-Desktop/raw/main/vncpasswd
              wget -O ~/.vnc/xstartup https://github.com/Efebey2903/GH-Ubuntu-Desktop/raw/main/xstartup
+             mv /home/runner/.vnc/xstartup ~/.vnc/xstartup
              chmod +x ~/.vnc./xstartup
              chmod 666 ~/.vnc/xstartup
              wget -O loop.sh https://github.com/Efebey2903/GH-Ubuntu-Desktop/raw/main/loop.sh
