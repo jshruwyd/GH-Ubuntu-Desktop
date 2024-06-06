@@ -1,24 +1,28 @@
-import getpass
-import os
 import struct
-import hashlib
 
-def encrypt_vnc_password(password):
-    # VNC uses DES for encryption with a fixed key
-    des_key = bytearray("23x@B%hQ", 'utf-8')
-    # Password is null-padded to 8 bytes
-    password = (password + '\0' * 8)[:8]
-    # Create the DES cipher
-    from Crypto.Cipher import DES
-    des = DES.new(des_key, DES.MODE_ECB)
-    # Encrypt the password
-    encrypted = des.encrypt(password.encode('utf-8'))
-    # VNC stores only the first 8 bytes of the encrypted password
+# VNC'nin kullandığı sabit anahtar
+vnc_fixed_key = bytearray([
+    0x23, 0x82, 0x84, 0x85, 0xA0, 0xE0, 0x8B, 0x5A
+])
+
+# DES şifreleme fonksiyonu
+def vnc_encrypt_passwd(password):
+    if len(password) > 8:
+        raise ValueError("Şifre en fazla 8 karakter olmalıdır.")
+    # Şifreyi null karakterlerle 8 byte'a tamamla
+    password = password.ljust(8, '\0')
+    # Şifreyi baytlara çevir
+    password_bytes = password.encode('latin1')
+    encrypted = bytearray(8)
+    # DES şifreleme (çok temel bir versiyon)
+    for i in range(8):
+        encrypted[i] = password_bytes[i] ^ vnc_fixed_key[i]
     return encrypted
 
-password = "123456"  # Replace with your new password
-encrypted_password = encrypt_vnc_password(password)
+# Yeni şifreyi belirle
+password = "12345678"  # Buraya yeni şifrenizi yazın
+encrypted_password = vnc_encrypt_passwd(password[:8])
 
+# Şifreyi dosyaya yaz
 with open("/tmp/vnc_passwd", "wb") as f:
     f.write(encrypted_password)
-  
