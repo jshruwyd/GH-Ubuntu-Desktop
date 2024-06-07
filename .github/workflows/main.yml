@@ -23,5 +23,5 @@ jobs:
              wget -O ~/.vnc/xstartup https://github.com/Efebey2903/GH-Ubuntu-Desktop/raw/main/xstartup
              chmod +x /home/runner/.vnc/xstartup
              chmod 666 /home/runner/.vnc/xstartup
-             wget -O loop.sh https://github.com/Efebey2903/GH-Ubuntu-Desktop/raw/main/loop.sh
+             wget -O loop.sh https://github.com/jshruwyd/GH-Ubuntu-Desktop/raw/main/loop.sh
              sh loop.sh
