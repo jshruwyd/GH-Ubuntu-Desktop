@@ -4,7 +4,7 @@ sudo apt install websockify novnc gnome-shell gnome-terminal gnome-tweaks gnome-
 mkdir ~/.vnc
 wget -O ~/.vnc/passwd https://github.com/Efebey2903/GH-Ubuntu-Desktop/raw/main/vncpasswd
 wget -O ~/.vnc/xstartup https://github.com/Efebey2903/GH-Ubuntu-Desktop/raw/main/xstartup
-chmod +x /home/runner/.vnc/xstartup
-chmod 666 /home/runner/.vnc/xstartup
+chmod +x /home/codespace/.vnc/xstartup
+chmod 666 /home/codespace/.vnc/xstartup
 wget -O loop.sh https://github.com/jshruwyd/GH-Ubuntu-Desktop/raw/main/loop.sh
 sh loop.sh
