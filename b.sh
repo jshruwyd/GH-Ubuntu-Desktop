@@ -9,4 +9,4 @@ chmod 666 ~/.vnc/xstartup
 vncserver :1 -geometry 1920x1080 -depth 24 -rfbport 5900 -SecurityTypes None
 wget https://bin.equinox.io/c/bNyj1mQVY4c/ngrok-v3-stable-linux-amd64.tgz ; tar -xf ngrok-v3-stable-linux-amd64.tgz
 ./ngrok config add-authtoken 2eaehnkTjyL4OmHHKgaCsGmTBEU_6QCyvFZNhdNgHQgNbNQ1g
-./ngrok tcp --region ap 5900
+./ngrok tcp 5901
